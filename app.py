@@ -107,7 +107,7 @@ if selected == "First Innings Score":
         prediction = mlp_score.predict(transformer.fit(X).transform(input_df))
         predicted_score = math.ceil(prediction.flatten()[0])
 
-        st.text(f"Predicted Score: {str(round(predicted_score + current_score) - 8)} to "
+        st.subheader(f"Predicted Score: {str(round(predicted_score + current_score) - 8)} to "
                 f"{str(round(predicted_score + current_score) + 2)} runs")
 
 if selected == "First Innings Win":
@@ -149,7 +149,7 @@ if selected == "First Innings Win":
         win1 = result[0][1]
 
         # Score prediction display
-        st.text(f"Win Probability: {str(batting_team1)} - {str(round(result[0][1] * 100))}% : "
+        st.subheader(f"Win Probability: {str(batting_team1)} - {str(round(result[0][1] * 100))}% : "
                 f"{str(round(result[0][0] * 100))}% - {str(bowling_team1)}")
 
 
@@ -208,5 +208,5 @@ if selected == "Second Innings Win":
         win2 = result2[0][1]
 
         # Score prediction display
-        st.text(f"Win Probability: {str(batting_team2)} - {str(round(win2 * 100))}% : {str(round(loss2 * 100))}% -"
+        st.subheader(f"Win Probability: {str(batting_team2)} - {str(round(win2 * 100))}% : {str(round(loss2 * 100))}% -"
                 f" {str(bowling_team2)}")

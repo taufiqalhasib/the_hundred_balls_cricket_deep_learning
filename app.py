@@ -81,9 +81,9 @@ if selected == "First Innings Score":
         wickets = st.number_input('Wickets:')
 
     if st.button('Prediction'):
-        balls_left = 100 - balls
-        wickets_left = 10 - wickets
-        crr = round(((current_score * 5) / balls), 2)
+        balls_left = 100.0 - balls
+        wickets_left = 10.0 - wickets
+        crr = round(((current_score * 5.0) / balls), 2)
         if str(gender) == 'Male':
             gender = 'male'
         else:
@@ -93,7 +93,7 @@ if selected == "First Innings Score":
         input_df = pd.DataFrame(
             {'batting_team': [str(batting_team)], 'bowling_team': [str(bowling_team)], 'venue': [str(venue)],
              'gender': [str(gender)], 'current_score': [int(current_score)], 'balls_bowled': [int(balls)],
-             'balls_left': [int(balls_left)], 'wickets_left': [int(wickets_left)], 'crr': [crr]})
+             'balls_left': [int(balls_left)], 'wickets_left': [int(wickets_left)], 'crr': [float(crr)]})
 
         transformer = make_column_transformer(
             (OneHotEncoder(sparse=False, drop='first'), [
@@ -177,10 +177,10 @@ if selected == "Second Innings Win":
         target2 = st.number_input('Target Score:')
 
     if st.button('Prediction'):
-        balls2 = 100 - balls_left2
+        balls2 = 100.0 - balls_left2
         current_score2 = target2 - runs_left2
-        crr2 = round(((current_score2 * 5) / balls2), 2)
-        rrr2 = round(((runs_left2 * 5) / balls_left2), 2)
+        crr2 = round(((current_score2 * 5.0) / balls2), 2)
+        rrr2 = round(((runs_left2 * 5.0) / balls_left2), 2)
         if str(gender2) == 'Male':
             gender2 = 'male'
         else:

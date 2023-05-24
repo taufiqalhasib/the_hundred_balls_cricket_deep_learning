@@ -108,8 +108,8 @@ if selected == "First Innings Score":
         predicted_score = math.ceil(prediction.flatten()[0])
          
         score = predicted_score / int(balls_left)
-        if score > 6:
-             predicted_score = 6
+        if score > 6.0:
+             predicted_score = 6 * int(balls_left)
         else:
              predicted_score = predicted_score
 

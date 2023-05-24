@@ -106,6 +106,12 @@ if selected == "First Innings Score":
         X = score_portability_df_male.drop(columns=['runs_remaining'], axis=1)
         prediction = mlp_score.predict(transformer.fit(X).transform(input_df))
         predicted_score = math.ceil(prediction.flatten()[0])
+         
+        score = predicted_score / int(balls_left)
+        if score > 6:
+             predicted_score = 6
+        else:
+             predicted_score = predicted_score
 
         st.subheader(f"Predicted Score: {str(round(predicted_score + current_score) - 8)} to "
                 f"{str(round(predicted_score + current_score) + 2)} runs")

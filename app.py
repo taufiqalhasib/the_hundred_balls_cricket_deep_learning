@@ -114,7 +114,7 @@ if selected == "First Innings Score":
 #             predicted_score = predicted_score
 
         st.subheader(f"Predicted Score: {str(round(predicted_score + current_score) - 8)} to "
-                f"{str(round(predicted_score + current_score) + 4)} runs")
+                f"{str(round(predicted_score + current_score) + 2)} runs")
 
 if selected == "First Innings Win":
     st.title("First Innings Win Probability")

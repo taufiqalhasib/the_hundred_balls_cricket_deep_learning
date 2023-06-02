@@ -99,7 +99,7 @@ if selected == "First Innings Score":
             (OneHotEncoder(sparse=False, drop='first'), [
                 'batting_team', 'bowling_team', 'venue', 'gender'
             ]),
-            (StandardScaler(), [
+            (MinMaxScaler(), [
                 'current_score', 'balls_bowled', 'balls_left', 'wickets_left', 'crr'
             ])
         )

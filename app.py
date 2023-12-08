@@ -83,7 +83,15 @@ if selected == "First Innings Score":
     if st.button('Prediction'):
         balls_left = 100.0 - balls
         wickets_left = 10.0 - wickets
-        crr = round(((current_score * 5.0) / balls), 2)
+        if balls == 0.0 or current_score == 0.0:
+        	crr = 0.00
+        else:
+        	crr = round(((current_score * 5.0) / balls), 2)
+        if current_score == 0.0:
+        	current_score = 0.00
+        else:
+        	current_score = current_score
+        # crr = round(((current_score * 5.0) / balls), 2)
         if str(gender) == 'Male':
             gender = 'male'
         else:
